@@ -1,0 +1,128 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - talk to you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yup
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: report_symptom
+  examples: |
+    - I have a [headache](symptom)
+    - I've been feeling [nauseous](symptom)
+    - My [stomach](body_part) hurts
+    - I think I have a [fever](symptom)
+    - I have a pain in my [chest](body_part)
+    - Feeling a lot of [fatigue](symptom) lately
+    - I have a [sore throat](symptom) and a [runny nose](symptom)
+    - My [back](body_part) has been aching for [two days](duration)
+    - I've had a [cough](symptom) for [a week](duration)
+    - I'm experiencing [dizziness](symptom)
+    - There is a [rash](symptom) on my [arm](body_part)
+    - I'm feeling [bloated](symptom)
+    - I have [chills](symptom) and [body aches](symptom)
+    - My [muscles](body_part) feel very [sore](symptom)
+    - I have [shortness of breath](symptom) when I walk
+    - I'm suffering from [insomnia](symptom)
+    - I have a sharp pain in my [knee](body_part)
+    - I've been [vomiting](symptom) since [last night](duration)
+    - I'm feeling very [anxious](symptom)
+    - I have some [head pain](symptom)
+    - My [head](body_part) hurts
+    - My [eyes](body_part) are [itchy](symptom) and [red](symptom)
+    - I have a persistent [dry cough](symptom)
+    - I'm dealing with [constipation](symptom)
+    - I think I might have [diarrhea](symptom)
+    - I have no [appetite](symptom)
+    - I am feeling [congested](symptom)
+    - I have a [migraine](symptom)
+    - My [joints](body_part) are [swollen](symptom)
+    - I'm having trouble [swallowing](symptom)
+    - I feel a [tingling](symptom) in my [fingers](body_part)
+    - I have [heart palpitations](symptom)
+    - I'm experiencing [blurry vision](symptom)
+    - I have a [toothache](symptom)
+    - My [skin](body_part) feels very [dry](symptom)
+    - I have a burning sensation when I [urinate](symptom)
+    - I've lost my sense of [smell](symptom)
+    - I feel [weak](symptom) and [tired](symptom) 
+    - I feel a [lump](symptom) in my [neck](body_part)
+    - My [gums](body_part) are [bleeding](symptom) when I brush
+    - I've noticed [unexplained weight loss](symptom)
+    - I have frequent [heartburn](symptom)
+    - I'm experiencing [hair loss](symptom)
+    - My [feet](body_part) are [numb](symptom)
+    - I feel a constant [pressure](symptom) in my [head](body_part)
+    - I have [brittle nails](symptom)
+    - I'm suffering from [acid reflux](symptom)
+    - I have a lot of [phlegm](symptom)
+    - I'm wheezing when I [breathe](symptom)
+    - My [voice](body_part) has become [hoarse](symptom)
+    - I feel very [irritable](symptom)
+    - I'm having [trouble concentrating](symptom)
+    - I've got [cramps](symptom) in my [legs](body_part)
+    - My [urine](body_part) is [dark](symptom)
+    - I'm experiencing [mood swings](symptom)
+    - I have a [metallic taste](symptom) in my mouth
+    - My [nose](body_part) won't stop [running](symptom)
+    - I feel [lethargic](symptom) all the time
+    - I have [pain](symptom) in my [lower abdomen](body_part)
+    - I'm struggling with [memory loss](symptom)
+    - I have a [stuffy nose](symptom)
+    - I'm seeing [floaters](symptom) in my [vision](body_part)
+    - My [lymph nodes](body_part) feel [swollen](symptom)
+    - I have [sensitive teeth](symptom)
+    - I'm experiencing [jaw pain](symptom)
+    - My [hands](body_part) are always [cold](symptom)
+    - I feel [shaky](symptom) and [weak](symptom)
+    - I have a [low-grade fever](symptom) that comes and goes
+    - I'm having [difficulty sleeping](symptom)
+    - I feel [disoriented](symptom)
+    - There is some [discharge](symptom) from my [ear](body_part)
+    - I'm feeling [paranoid](symptom)
+    - I'm having [night sweats](symptom)
+
+- intent: ask_about_disease
+  examples: |
+    - What is [malaria](disease)?
+    - Tell me about the [flu](disease)
+    - Can you explain what [diabetes](disease) is?
+    - I want to know more about [hypertension](disease)
+
+- intent: request_emergency_guidance
+  examples: |
+    - I need help now
+    - This is an emergency
+    - I have severe chest pain
+    - I can't breathe
+    - What to do in an emergency?

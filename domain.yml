@@ -1,0 +1,45 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - report_symptom
+  - ask_about_disease
+  - request_emergency_guidance
+
+entities:
+  - symptom
+  - body_part
+  - duration
+  - disease
+
+responses:
+  utter_greet:
+  - text: "Hello! I am MediCopilot, your AI health assistant. How can I help you today? \n\n**Disclaimer:** I am not a medical professional. For any medical emergency, please call your local emergency services immediately."
+
+  utter_goodbye:
+  - text: "Goodbye! Take care and stay healthy."
+
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you please rephrase?"
+
+  utter_ask_for_symptoms:
+  - text: "I understand. To help me get a clearer picture, could you please describe your symptoms?"
+  
+  # utter_acknowledge_symptom:
+  # - text: "Thank you for sharing. I have noted that you are experiencing symptoms."
+
+  utter_emergency_guidance:
+  - text: "**This sounds like it could be serious. Please do not wait.** Contact your local emergency services (like 911 or 112) or go to the nearest emergency room immediately. Your health is the top priority."
+
+  utter_default_disease_info:
+  - text: "Providing information about specific diseases is a key feature. For now, I can tell you that it's always best to consult a doctor for a formal diagnosis and information about any condition."
+
+actions:
+  - action_save_symptoms
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

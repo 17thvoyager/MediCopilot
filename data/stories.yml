@@ -1,0 +1,35 @@
+version: "3.1"
+
+stories:
+- story: happy path - greet and report symptom
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: report_symptom
+  - action: action_save_symptoms
+
+- story: user reports symptom directly
+  steps:
+  - intent: report_symptom
+    entities:
+    - symptom: "headache"
+  - action: action_save_symptoms
+
+- story: user asks about a disease
+  steps:
+  - intent: ask_about_disease
+    entities:
+    - disease: "diabetes"
+  - action: utter_default_disease_info
+
+- story: user asks for emergency help
+  steps:
+  - intent: request_emergency_guidance
+  - action: utter_emergency_guidance
+
+- story: happy path - goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
