@@ -118,6 +118,11 @@ nlu:
     - Tell me about the [flu](disease)
     - Can you explain what [diabetes](disease) is?
     - I want to know more about [hypertension](disease)
+    - what is [asthma](disease)
+    - can you explain [cancer](disease)
+    - [migraine](disease)
+    - [eczema](disease)
+    - tell me about [brain cancer](disease)
 
 - intent: request_emergency_guidance
   examples: |

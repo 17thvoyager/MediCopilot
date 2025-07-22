@@ -3,6 +3,11 @@ import certifi
 from datetime import datetime
 from typing import Any, Text, Dict, List
 
+from urllib.parse import quote
+
+import requests
+import xml.etree.ElementTree as ET 
+
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
@@ -57,3 +62,74 @@ class ActionSaveSymptoms(Action):
             dispatcher.utter_message(text="I'm having trouble noting that down right now. Please try again in a moment.")
 
         return []
+
+class ActionDescribeDisease(Action):
+
+    def name(self) -> Text:
+        return "action_describe_disease"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # 1. Get the disease entity
+        disease_query = next(tracker.get_latest_entity_values("disease"), None)
+
+        if not disease_query:
+            dispatcher.utter_message(text="What condition would you like to know about?")
+            return []
+
+        # 2. Prepare the API request (this time, no special headers)
+        api_url = f"https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term={quote(disease_query)}"
+
+        try:
+            # 3. Make the API call
+            response = requests.get(api_url)
+            response.raise_for_status()
+
+            # 4. Parse the XML response
+            root = ET.fromstring(response.content)
+            list_element = root.find('list')
+
+            # Check if any results were returned
+            if list_element is not None and int(list_element.get('n', 0)) > 0:
+                documents = list_element.findall('document')
+                
+                if len(documents) == 1:
+                    # Perfect match
+                    doc = documents[0]
+                    title_element = doc.find("content[@name='title']")
+                    summary_element = doc.find("content[@name='FullSummary']")
+                    
+                    title = title_element.text if title_element is not None else "N/A"
+                    summary = summary_element.text if summary_element is not None else "No summary available."
+                    
+                    message = f"Here is some information about **{title}** from MedlinePlus:\n\n{summary}"
+                    dispatcher.utter_message(text=message)
+                else:
+                    # Multiple matches
+                    suggestions = []
+                    for doc in documents[:3]: # Get top 3 suggestions
+                        title_element = doc.find("content[@name='title']")
+                        if title_element is not None:
+                            suggestions.append(title_element.text)
+                    
+                    message = f"I found a few potential matches for '{disease_query}'. Did you mean one of these? \n- " + "\n- ".join(suggestions)
+                    dispatcher.utter_message(text=message)
+            else:
+                # No results found
+                message = f"I'm sorry, I couldn't find any information on '{disease_query}' in the MedlinePlus database. Please try a different term or consult a medical professional."
+                dispatcher.utter_message(text=message)
+
+        except requests.exceptions.RequestException as e:
+            # Handle network errors
+            print(f"API Request Error: {e}")
+            message = "I'm having trouble accessing my knowledge base right now. Please check your connection and try again."
+            dispatcher.utter_message(text=message)
+        except ET.ParseError as e:
+            # Handle cases where the response is not valid XML
+            print(f"XML Parse Error: {e}")
+            message = "I received a response from the knowledge base, but I couldn't understand it. Please try again."
+            dispatcher.utter_message(text=message)
+            
+        return []        

@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-body_part",
+      "2": "I-body_part",
+      "3": "L-body_part",
+      "4": "U-body_part",
+      "5": "B-disease",
+      "6": "I-disease",
+      "7": "L-disease",
+      "8": "U-disease",
+      "9": "B-duration",
+      "10": "I-duration",
+      "11": "L-duration",
+      "12": "U-duration",
+      "13": "B-symptom",
+      "14": "I-symptom",
+      "15": "L-symptom",
+      "16": "U-symptom",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-body_part": 1,
+      "I-body_part": 2,
+      "L-body_part": 3,
+      "U-body_part": 4,
+      "B-disease": 5,
+      "I-disease": 6,
+      "L-disease": 7,
+      "U-disease": 8,
+      "B-duration": 9,
+      "I-duration": 10,
+      "L-duration": 11,
+      "U-duration": 12,
+      "B-symptom": 13,
+      "I-symptom": 14,
+      "L-symptom": 15,
+      "U-symptom": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

@@ -8,19 +8,11 @@ stories:
   - intent: report_symptom
   - action: action_save_symptoms
 
-- story: user reports symptom directly
-  steps:
-  - intent: report_symptom
-    entities:
-    - symptom: "headache"
-  - action: action_save_symptoms
-
 - story: user asks about a disease
   steps:
   - intent: ask_about_disease
-    entities:
-    - disease: "diabetes"
-  - action: utter_default_disease_info
+  - action: action_describe_disease
+
 
 - story: user asks for emergency help
   steps:
