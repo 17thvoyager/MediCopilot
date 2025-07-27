@@ -131,3 +131,25 @@ nlu:
     - I have severe chest pain
     - I can't breathe
     - What to do in an emergency?
+
+- intent: ask_what_is_wellness_topic
+  examples: |
+    - is [yogurt](wellness_topic) good for gut health
+    - tell me about [probiotics](wellness_topic)
+    - are [vitamins](wellness_topic) important
+    - what are the benefits of [meditation](wellness_topic)
+    - is [sleep](wellness_topic) important for health
+    - tell me about [fiber](wellness_topic)
+    - is [kale](wellness_topic) a superfood
+    - what is a [balanced diet](wellness_topic)
+    - are [probiotics](wellness_topic) in [yogurt](wellness_topic) good for you  
+    - define [probiotics](wellness_topic)  
+
+
+- intent: ask_benefit_of_wellness_topic
+  examples: |
+    - is [yogurt](wellness_topic) good for gut health
+    - are [vitamins](wellness_topic) important
+    - what are the benefits of [sleep](wellness_topic)
+    - is [kale](wellness_topic) healthy
+    - are [probiotics](wellness_topic) in [yogurt](wellness_topic) good for you

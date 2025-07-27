@@ -1,0 +1,59 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "ask_about_disease": 1,
+        "ask_wellness_info": 2,
+        "back": 3,
+        "deny": 4,
+        "goodbye": 5,
+        "greet": 6,
+        "nlu_fallback": 7,
+        "out_of_scope": 8,
+        "report_symptom": 9,
+        "request_emergency_guidance": 10,
+        "restart": 11,
+        "session_start": 12
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "action_save_symptoms": 13,
+        "action_describe_disease": 14,
+        "action_wellness_info": 15,
+        "utter_ask_for_symptoms": 16,
+        "utter_default_disease_info": 17,
+        "utter_emergency_guidance": 18,
+        "utter_goodbye": 19,
+        "utter_greet": 20,
+        "utter_please_rephrase": 21
+      },
+      "entities": {
+        "body_part": 0,
+        "disease": 1,
+        "duration": 2,
+        "symptom": 3,
+        "wellness_topic": 4
+      },
+      "slots": {},
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

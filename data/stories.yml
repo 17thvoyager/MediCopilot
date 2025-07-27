@@ -25,3 +25,8 @@ stories:
   - action: utter_greet
   - intent: goodbye
   - action: utter_goodbye
+
+- story: user asks about a wellness topic
+  steps:
+  - intent: ask_wellness_info
+  - action: action_wellness_info  

@@ -8,12 +8,15 @@ intents:
   - report_symptom
   - ask_about_disease
   - request_emergency_guidance
+  - action_what_is_wellness_topic 
+  - ask_benefit_of_wellness_topic
 
 entities:
   - symptom
   - body_part
   - duration
   - disease
+  - wellness_topic
 
 responses:
   utter_greet:
@@ -40,7 +43,9 @@ responses:
 actions:
   - action_save_symptoms
   - action_describe_disease
+  - action_what_is_wellness_topic  # Renamed
+  - action_benefit_info           # New
 
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_`s_to_new_session: true

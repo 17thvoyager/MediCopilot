@@ -1,0 +1,10 @@
+{
+  "0": "affirm",
+  "1": "ask_about_disease",
+  "2": "ask_wellness_info",
+  "3": "deny",
+  "4": "goodbye",
+  "5": "greet",
+  "6": "report_symptom",
+  "7": "request_emergency_guidance"
+}
